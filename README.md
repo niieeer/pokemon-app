@@ -1,4 +1,16 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+1 - Créer un projet sous NextJS
+
+2 - Utiliser Shadcn UI
+
+3 - Récupérer les 100 premiers pokémon https://pokeapi.co/
+
+4 - Pouvoir gérer l'affichage par ordre croissant/décroissant (alphabétique)
+
+5 - Gérer la pagination
+
+6 - Pouvoir rechercher un pokémon via un input recherche
+
+7 - Voir sur une page spécifique les infos des pokémons grâce à leur ID
 
 ## Getting Started
 
