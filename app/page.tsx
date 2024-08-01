@@ -45,8 +45,8 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center justify-center p-6 bg-gray-50 min-h-screen">
       <div className="max-w-3xl w-full bg-white shadow-lg rounded-lg p-8 space-y-6">
-        <h1 className="text-2xl font-bold text-gray-800 text-center">
-          Pokédex affichant les 100 premiers Pokémons !
+        <h1 className="text-2xl scroll-m-20 text-4xl font-extrabold tracking-tight">
+          Pokédex des 100 premiers Pokémons !
         </h1>
         <Input
           className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"

@@ -40,12 +40,12 @@ const Pagination: React.FC<PaginationProps> = ({
           Suivant
         </Button>
       </div>
-      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <ul className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {paginatedItems.map((pokemon) => (
           <Link
             href={`/pokemon/${pokemon.name}`}
             key={pokemon.name}
-            className="block text-center border border-gray-300 p-4 rounded-lg bg-white shadow-md hover:bg-gray-100 transition capitalize"
+            className="text-center border border-gray-300 p-6 rounded-lg bg-white shadow-md hover:bg-gray-100 transition capitalize"
           >
             {pokemon.name}
           </Link>
