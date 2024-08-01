@@ -3,25 +3,21 @@ import Pagination from "@/components/Pagination";
 import SortPokemon from "@/components/SortPokemon";
 import { Input } from "@/components/ui/input";
 import { useEffect, useState } from "react";
-import { fetchPokemon } from "./api/fetchPokemon";
+import { fetchPokemons } from "./api/fetchPokemons";
 
 export default function Home() {
-  // tableau des données de Pokémons
   const [pokemon, setPokemon] = useState<any[]>([]);
 
-  // state pour le tri des Pokémons
   const [sortOrder, setSortOrder] = useState("asc");
 
-  // state pour la pagination
   const [page, setPage] = useState(1);
 
-  // state pour l'input de recherche
   const [searchTerm, setSearchTerm] = useState("");
 
   // récupère les données des Pokémons depuis l'API et les stocke dans le state
   useEffect(() => {
     async function getPokemon() {
-      const data = await fetchPokemon(100);
+      const data = await fetchPokemons(100);
       setPokemon(data);
     }
     getPokemon();
