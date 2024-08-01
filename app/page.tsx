@@ -1,5 +1,6 @@
 "use client";
 import Pagination from "@/components/Pagination";
+import SortPokemon from "@/components/SortPokemon";
 import { Input } from "@/components/ui/input";
 import { useEffect, useState } from "react";
 import { fetchPokemon } from "./api/fetchPokemon";
@@ -53,6 +54,12 @@ export default function Home() {
           onChange={handleSearchChange}
           placeholder="Rechercher un Pokémon"
           type="text"
+        />
+        <SortPokemon
+          pokemons={pokemon}
+          sortOrder={sortOrder}
+          setPokemons={setPokemon}
+          setSortOrder={setSortOrder}
         />
         {/* Affichage des Pokémons triés */}
         <Pagination

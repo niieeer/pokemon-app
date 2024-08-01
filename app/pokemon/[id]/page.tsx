@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 
+// Recherche un pokémon en fonction de son id récuperer en parametre
 export default async function Page({ params }: { params: { id: string } }) {
   const response = await fetch(
     `https://pokeapi.co/api/v2/pokemon/${params.id}/`
   );
   const pokemon = await response.json();
-  console.log(pokemon.sprites);
 
   return (
     <div className="flex flex-col items-center justify-center p-6 bg-gray-50 min-h-screen">
@@ -29,11 +29,17 @@ export default async function Page({ params }: { params: { id: string } }) {
             className="rounded-lg shadow-md"
           />
           <div className="mt-4 text-gray-600">
+            <p className="text-lg">
+              Type:{" "}
+              <span className="border p-1">{pokemon.types[0].type.name}</span>
+            </p>
             <p className="text-lg">Taille: {pokemon.height / 10} m</p>
             <p className="text-lg">Poids: {pokemon.weight / 10} kg</p>
-            <p className="text-lg">
-              Expérience de base: {pokemon.base_experience}
-            </p>
+            {/* son du pokemon
+            <audio controls src={pokemon.cries.latest}>
+              Your browser does not support the
+              <code>audio</code> element.
+            </audio> */}
           </div>
         </div>
       </div>
