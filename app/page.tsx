@@ -3,7 +3,7 @@ import Pagination from "@/components/Pagination";
 import SortPokemon from "@/components/SortPokemon";
 import { Input } from "@/components/ui/input";
 import { useEffect, useState } from "react";
-import { fetchPokemons } from "./api/fetchPokemons";
+import { fetchPokemonsWithDetails } from "./api/fetchPokemons";
 
 export default function Home() {
   const [pokemon, setPokemon] = useState<any[]>([]);
@@ -17,12 +17,20 @@ export default function Home() {
   // récupère les données des Pokémons depuis l'API et les stocke dans le state
   useEffect(() => {
     async function getPokemon() {
-      const data = await fetchPokemons(100);
-      setPokemon(data);
+      const savedPokemon = localStorage.getItem("pokemonData");
+      if (savedPokemon === "undefined") {
+        localStorage.clear();
+      }
+      if (savedPokemon) {
+        setPokemon(JSON.parse(savedPokemon));
+      } else {
+        const data = await fetchPokemonsWithDetails(100);
+        localStorage.setItem("pokemonData", JSON.stringify(data));
+        setPokemon(data);
+      }
     }
     getPokemon();
   }, []);
-
   // fonction pour la pagination
   const handlePageChange = (newPage: number) => {
     setPage(newPage);

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
 
@@ -47,6 +48,12 @@ const Pagination: React.FC<PaginationProps> = ({
             key={pokemon.name}
             className="text-center border border-gray-300 p-6 rounded-lg bg-white shadow-md hover:bg-gray-100 transition capitalize"
           >
+            <Image
+              src={pokemon.sprites.other["official-artwork"].front_default}
+              alt={pokemon.name}
+              width={100}
+              height={100}
+            />
             {pokemon.name}
           </Link>
         ))}
